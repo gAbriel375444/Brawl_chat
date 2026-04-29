@@ -19,9 +19,12 @@ const respostas = {
         
         Nocaute: Eliminar o time adversário em uma melhor de três rodadas.`
     ],
-    ansiedade: [
-        "Tente focar no agora. O que você consegue ver e ouvir ao seu redor?",
-        "Seus pensamentos estão acelerados? Lembre-se: pensamentos não são fatos. Vai passar."
+    novidades: [
+        `O Brawl Talk de abril de 2026 celebra a marca de 100 brawlers com o lançamento da lendária Starr Nova, além de Damian e Bolt. 
+
+        O destaque técnico fica para o novo Sistema de Prestígio, que acaba com a perda de troféus após os 1000 pontos, e as colaborações épicas com My Hero Academia e Adidas. 
+        
+        No gameplay, o modo Combate recebe caixas com itens ativos e o sistema social ganha melhorias contra toxicidade e novas opções de personalização.`
     ],
     apoio: [
         "Você é mais forte do que imagina, mesmo nos dias em que não acredita nisso.",
@@ -46,6 +49,10 @@ function getBotResponse(input) {
 
     if (["modos de jogo", "modos", "tipos de partida"].some(w => text.includes(w))) {
         return respostas.modosDeJogo[Math.floor(Math.random() * respostas.modosDeJogo.length)];
+    }
+
+    if (["quais as novidades", "novidades", "o que há de novo", "brawl talk show", "brawl talk", "de novo"].some(w => text.includes(w))) {
+        return respostas.novidades[Math.floor(Math.random() * respostas.novidades.length)];
     }
 
     return respostas.fallback;}
