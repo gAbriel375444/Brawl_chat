@@ -22,7 +22,7 @@ body {
     font-weight: bold; }
 
 #chat-output { 
-    height: 500px; 
+    height: 350px; 
     overflow-y: auto; 
     padding: 20px; 
     display: flex; 
