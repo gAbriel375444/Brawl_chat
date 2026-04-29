@@ -240,7 +240,7 @@ function processUserInput() {
     // Efeito de "O conselheiro está pensando..."
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "typing";
-    typingIndicator.innerText = "Brawler está digitando...";
+    typingIndicator.innerText = "Bot está digitando...";
     chatOutput.appendChild(typingIndicator);
 
     setTimeout(() => {
