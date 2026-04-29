@@ -2,15 +2,22 @@ const chatOutput = document.getElementById("chat-output");
 const userInput = document.getElementById("user-input");
 
 // Banco de respostas empáticas
-const conselhos = {
-    tristeza: [
-        "Sinto muito que você esteja passando por isso. É normal se sentir assim às vezes.",
-        "Respire fundo. Você não precisa resolver tudo hoje. Quer me contar mais sobre o que aconteceu?",
-        "Estou aqui te ouvindo. Chorar ou ficar triste faz parte do processo de cura, não se cobre tanto."
+const respostas = {
+    conceito: [
+        `O Brawl Stars é um jogo de combate online para celular.
+
+        Você escolhe um personagem (Brawler) e entra em arenas para enfrentar outros jogadores em tempo real. O foco é estratégia rápida: cada herói tem um ataque único e um "Super" poder. 
+
+        Vence quem completar o objetivo primeiro — como dominar uma área ou eliminar os adversários — em partidas que duram menos de 3 minutos.`
     ],
-    solidao: [
-        "A solidão dói, mas saiba que você não está falando sozinho agora. Eu estou aqui.",
-        "Às vezes nos sentimos sós mesmo rodeados de gente. O que você acha que ajudaria a confortar seu coração agora?"
+    modosDeJogo: [
+       `Pique-Gema: Coletar e segurar 10 gemas até o fim da contagem regressiva.
+
+        Fute-Brawl: Levar a bola até o gol adversário (muito popular por ser intuitivo).
+
+        Combate (Solo/Dupla): O clássico "Battle Royale" onde o objetivo é ser o último sobrevivente na arena.
+        
+        Nocaute: Eliminar o time adversário em uma melhor de três rodadas.`
     ],
     ansiedade: [
         "Tente focar no agora. O que você consegue ver e ouvir ao seu redor?",
@@ -33,26 +40,15 @@ function getBotResponse(input) {
     const text = input.toLowerCase();
 
     // Detecção de Tristeza profunda/Desânimo
-    if (["triste", "mal", "ruim", "chorando", "choro", "sofrer", "desanimado", "deprimido"].some(w => text.includes(w))) {
-        return conselhos.tristeza[Math.floor(Math.random() * conselhos.tristeza.length)];
+    if (["o que é", "sobre o jogo"].some(w => text.includes(w))) {
+        return respostas.conceito[Math.floor(Math.random() * respostas.conceito.length)];
     }
 
-    // Detecção de Solidão
-    if (["sozinho", "sozinha", "solitário", "ninguém", "só"].some(w => text.includes(w))) {
-        return conselhos.solidao[Math.floor(Math.random() * conselhos.solidao.length)];
+    if (["modos de jogo", "modos", "tipos de partida"].some(w => text.includes(w))) {
+        return respostas.modosDeJogo[Math.floor(Math.random() * respostas.modosDeJogo.length)];
     }
 
-    // Detecção de Ansiedade/Medo
-    if (["medo", "ansioso", "ansiosa", "preocupado", "preocupada", "pânico"].some(w => text.includes(w))) {
-        return conselhos.ansiedade[Math.floor(Math.random() * conselhos.ansiedade.length)];
-    }
-
-    // Agradecimento ou melhora
-    if (["obrigado", "obrigada", "ajudou", "melhor"].some(w => text.includes(w))) {
-        return "Fico muito feliz em saber que pude ajudar um pouquinho. Saiba que você é importante! ❤️";
-    }
-
-    return conselhos.fallback;}
+    return respostas.fallback;}
 
 function processUserInput() {
     const message = userInput.value.trim();
@@ -64,7 +60,7 @@ function processUserInput() {
     // Efeito de "O conselheiro está pensando..."
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "typing";
-    typingIndicator.innerText = "O Hobot está digitando...";
+    typingIndicator.innerText = "Brawler está digitando";
     chatOutput.appendChild(typingIndicator);
 
     setTimeout(() => {
@@ -78,6 +74,6 @@ userInput.addEventListener("keyup", (e) => { if (e.key === "Enter") processUserI
 // Mensagem inicial acolhedora
 window.onload = () => {
     setTimeout(() => {
-        displayMessage("bot", "Oi... percebi que você veio até aqui. Como está o seu coração hoje? Se quiser desabafar, sou todo ouvidos. ");
+        displayMessage("Quer saber algo sobre Brawl Stars? Manda aqui!");
     }, 3200);
 };

@@ -6,7 +6,7 @@ body {
 
 #chat-container { 
     width: 100%; 
-    max-width: 450px; 
+    max-width: 750px; 
     background: white; 
     border-radius: 20px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
@@ -48,7 +48,10 @@ body {
     align-self: flex-start; 
     background-color: #f1f2f6; color: #2f3542; 
     border-bottom-left-radius: 2px; 
-    border: 1px solid #e1e1e1; }
+    border: 1px solid #e1e1e1; 
+    white-space: pre-line;
+}
+
 
 #input-area { 
     display: flex; 
