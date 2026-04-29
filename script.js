@@ -60,7 +60,7 @@ function processUserInput() {
     // Efeito de "O conselheiro está pensando..."
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "typing";
-    typingIndicator.innerText = "Brawler está digitando";
+    typingIndicator.innerText = "Brawler está digitando...";
     chatOutput.appendChild(typingIndicator);
 
     setTimeout(() => {
@@ -71,9 +71,9 @@ function processUserInput() {
 
 userInput.addEventListener("keyup", (e) => { if (e.key === "Enter") processUserInput(); });
 
-// Mensagem inicial acolhedora
+// Mensagem inicial 
 window.onload = () => {
     setTimeout(() => {
-        displayMessage("Quer saber algo sobre Brawl Stars? Manda aqui!");
-    }, 3200);
+        displayMessage("bot", "Quer saber algo sobre Brawl Stars? Manda aqui!");
+    }, 1600);
 };
