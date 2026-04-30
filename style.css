@@ -1,9 +1,30 @@
-body { 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f7f9fc; 
-    display: flex; 
-    justify-content: center; 
-    padding: 20px; }
 
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+  
+    background-image: url('Fundo\ brawl\ stars.jpg');
+    background-size: cover;      /* cobre a tela toda */
+    background-position: center; /* centraliza */
+    background-repeat: no-repeat;/* não repete */
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+@keyframes subirFundo {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -1000px;
+  }
+}
 #chat-container { 
     width: 100%; 
     max-width: 750px; 
@@ -16,7 +37,7 @@ body {
 
 #chat-header { 
     background: #6c5ce7; 
-    color: white; 
+    color: rgb(214, 205, 125); 
     padding: 20px; 
     text-align: center; 
     font-weight: bold; }
@@ -86,3 +107,169 @@ button {
     color: #a4b0be; 
     margin-bottom: 10px;
 }
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FUNDO ANIMADO (SUBINDO) */
+
+
+@keyframes subirFundo {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 -500px, 0 -800px, 0 0;
+  }
+}
+
+/* CONTAINER */
+#chat-container {
+  width: 750px;
+  height: 500px;
+
+  background: #e6e6e6;
+  border-radius: 30px;
+  padding: 20px;
+
+  position: relative;
+
+  box-shadow: 
+    0 10px 0 #999,
+    0 0 30px rgba(0,0,0,0.5);
+}
+
+
+/* TITULO */
+.titulo {
+
+  text-align: center;
+  color: yellow;
+  font-size: 28px;
+  text-shadow: 3px 3px black;
+  margin-bottom: 10px;
+}
+
+/* CHAT */
+#chat-output {
+  height: 300px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* SCROLL ESTILIZADO */
+#chat-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-output::-webkit-scrollbar-thumb {
+  background: #0c5bd4;
+  border-radius: 10px;
+}
+
+/* MENSAGENS */
+.msg {
+  padding: 12px;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 14px;
+
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(10px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/*    reposta                 go*/
+.user-msg {
+  background: linear-gradient(#fffb00, #d5c000);
+  align-self: flex-end;
+
+  box-shadow: 2px 2px 0 #baa800;
+}
+
+/* BOT */
+.bot-msg {
+  background: linear-gradient(#4da6ff, #2b7bd6);
+  color: white;
+  align-self: flex-start;
+
+  box-shadow: 2px 2px 0 #1b4e8f;
+}
+
+/* INPUT */
+#chat-input-area {
+    
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  gap: 10px;
+}
+
+/* INPUT BOX */
+#user-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+
+  background: #2b7bd6;
+  color: white;
+}
+
+/* BOTÃO */
+button {
+  background: rgb(86, 111, 239);
+  color: rgb(178, 200, 228);
+  border: none;
+
+  padding: 10px 20px;
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+#chat-input-area {
+
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.pin{
+
+
+position: absolute;
+
+
+display: flex;
+
+left: 130px;
+
+bottom: 0px;
+
+} 
